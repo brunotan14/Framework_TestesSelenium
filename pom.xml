@@ -88,12 +88,17 @@
                         <goals>
                             <goal>reporting</goal>
                         </goals>
-                        <configuration>
-                            <sourceJsonReportDirectory>${project.build.directory}/cucumber-reports</sourceJsonReportDirectory>
-                            <generatedHtmlReportDirectory>${project.build.directory}/cluecumber-reports</generatedHtmlReportDirectory>
-                        </configuration>
                     </execution>
                 </executions>
+
+                <!-- 🔧 Configuração deve estar aqui fora -->
+                <configuration>
+                    <!-- Onde o Cucumber salva o JSON -->
+                    <sourceJsonReportDirectory>${project.build.directory}/cucumber-reports</sourceJsonReportDirectory>
+
+                    <!-- Onde o Cluecumber gera o HTML -->
+                    <generatedHtmlReportDirectory>${project.build.directory}/cluecumber-reports</generatedHtmlReportDirectory>
+                </configuration>
             </plugin>
         </plugins>
     </build>

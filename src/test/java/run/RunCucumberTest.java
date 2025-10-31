@@ -7,14 +7,14 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        plugin = {},
+        plugin = {"pretty", "json:target/reports/json/report.json", "html:target/reports/index.html"},
         features = "src/test/resources/features",
         glue = ("steps"),
-        tags = "@login"
+        tags = ""
 )
 public class RunCucumberTest extends RunBase{
 
-    @AfterClass //depois de cada classe
+    @AfterClass
     public static void finalizar(){
            driver.quit();
     }

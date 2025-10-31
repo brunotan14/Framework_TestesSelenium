@@ -9,7 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 
 public class RunBase {
-    public static WebDriver driver; //instância do driver do navegador
+    public static WebDriver driver;
 
     public static WebDriver getDriver(){
         return driver;
@@ -30,6 +30,7 @@ public class RunBase {
                 break;
             case "edge":
                  driver = new EdgeDriver();
+                 break;
             default:
                 throw new IllegalArgumentException("Navegador não encontrado! Passe um navegador existente: chrome, forefox ou edge.");
         }

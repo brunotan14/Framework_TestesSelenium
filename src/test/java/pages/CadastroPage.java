@@ -12,6 +12,8 @@ import support.Utils;
 
 import java.time.Duration;
 
+import static support.commands.*;
+
 public class CadastroPage extends Utils {
     LoginPage loginPage = new LoginPage();
 
@@ -19,13 +21,17 @@ public class CadastroPage extends Utils {
     private By inputEmail = By.id("email");
     private By inputPassword = By.id("password");
     private By submit = By.id("btnRegister");
+    private By registerArea = By.className("fa-lock");
 
     public void acessite(){
         loginPage.enterQazando();
+        clickElement(registerArea);
     }
 
     public void fillCredencials(String name, String email, String password){
-
+         fillField(inputname, name);
+         fillField(inputEmail, email);
+         fillField(inputPassword, password);
     }
 
     public void ScroolDown() throws InterruptedException {
@@ -36,15 +42,15 @@ public class CadastroPage extends Utils {
 
 
     public void submitRegister(){
-
+        clickElement(submit);
     }
 
-    public void messageSucess(String user){
-
+    public void messageSucess(){
+       checkMessage(By.id("swal2-title"), "Cadastro realizado!");
     }
 
-    public void messageError(){
-
+    public void messageError(String message){
+      checkMessage(By.className("errorLabel"), message);
     }
 }
 
